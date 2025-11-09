@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>omamesh.net — Coming soon</title>
+  <meta name="description" content="Metro Omaha Meshtastic community site. Coming soon." />
+  <meta name="theme-color" content="#0ea5e9" />
+  <meta property="og:title" content="omamesh.net — Coming soon" />
+  <meta property="og:description" content="Metro Omaha Meshtastic community site. Coming soon." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://omamesh.net/" />
+  <meta name="robots" content="noindex,follow" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230ea5e9'/%3E%3Cpath d='M50 25a25 25 0 1 0 0 50 25 25 0 0 0 0-50Zm0 6a19 19 0 1 1 0 38 19 19 0 0 1 0-38Zm-9 18h18v6H41z' fill='white'/%3E%3C/svg%3E" />
+  <style>
+    :root{
+      --bg: #0b1020;
+      --fg: #e5f2ff;
+      --muted: #a7c4dd;
+      --brand: #0ea5e9; /* cyan-500 */
+      --card: rgba(255,255,255,0.06);
+      --ring: rgba(14,165,233,0.35);
+      --shadow: 0 10px 30px rgba(2,8,23,0.35);
+      --grid: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 1px);
+    }
+    @media (prefers-color-scheme: light) {
+      :root{
+        --bg: #f8fafc;
+        --fg: #0b1020;
+        --muted: #334155;
+        --card: rgba(2,8,23,0.04);
+        --ring: rgba(14,165,233,0.20);
+        --grid: radial-gradient(circle at 1px 1px, rgba(2,8,23,0.06) 1px, transparent 1px);
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+      color:var(--fg);
+      background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(14,165,233,0.20), transparent 50%),
+        radial-gradient(1200px 600px at 0% 110%, rgba(14,165,233,0.15), transparent 50%),
+        var(--bg);
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+    }
+    .wrap{
+      width:min(980px, 94vw);
+      margin:auto;
+      padding:28px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:24px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+      position:relative;
+      isolation:isolate;
+      overflow:hidden;
+    }
+    .grid{position:absolute; inset:0; background-size:24px 24px; background-image:var(--grid); opacity:.35; pointer-events:none}
+    header{display:flex; align-items:center; gap:14px; padding:24px 24px 0}
+    .logo{
+      width:44px; height:44px; border-radius:12px; display:grid; place-items:center;
+      background: linear-gradient(135deg, var(--brand), #60a5fa);
+      box-shadow: 0 6px 16px var(--ring);
+    }
+    .logo svg{width:26px; height:26px; fill:white}
+    .brand h1{font-size:clamp(22px,3.4vw,32px); line-height:1.1; margin:0}
+    .brand p{margin:2px 0 0; color:var(--muted)}
+
+    .hero{padding:36px 24px 8px; text-align:center}
+    .hero h2{font-size:clamp(30px,6vw,56px); line-height:1.05; margin:0 0 10px}
+    .hero p{margin:0 auto; max-width:60ch; color:var(--muted)}
+
+    .cta{
+      display:flex; flex-wrap:wrap; gap:12px; justify-content:center; align-items:center; padding:24px; margin:10px 0 8px;
+    }
+    .btn{appearance:none; border:none; cursor:pointer; font-weight:650; letter-spacing:.2px; padding:12px 16px; border-radius:999px}
+    .btn.primary{background:var(--brand); color:white; box-shadow:0 6px 18px var(--ring)}
+    .btn.ghost{background:transparent; color:var(--fg); border:1px solid rgba(255,255,255,.18)}
+    .btn:focus-visible{outline:3px solid var(--ring)}
+
+    .info{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; padding:0 24px 24px}
+    .tile{padding:16px 18px; border:1px dashed rgba(255,255,255,0.18); border-radius:16px}
+    .tile h3{margin:0 0 6px; font-size:15px; text-transform:uppercase; letter-spacing:.14em; opacity:.85}
+    .tile p{margin:0; color:var(--muted)}
+
+    footer{padding:18px 24px 26px; color:var(--muted); text-align:center}
+    footer a{color:inherit}
+
+    /* fun pulse */
+    .pulse{position:absolute; inset:auto 0 -50px 0; height:140px; background:radial-gradient(50% 100% at 50% 0, var(--ring), transparent 70%); filter:blur(14px); opacity:.6}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="grid" aria-hidden="true"></div>
+      <header>
+        <div class="logo" aria-hidden="true">
+          <!-- inline radio-ish glyph -->
+          <svg viewBox="0 0 24 24" role="img" aria-label="">
+            <path d="M12 3a1 1 0 0 1 1 1v2.07a7.001 7.001 0 0 1 4.93 4.93H20a1 1 0 1 1 0 2h-2.07A7.001 7.001 0 0 1 13 18.93V21a1 1 0 1 1-2 0v-2.07A7.001 7.001 0 0 1 6.07 13H4a1 1 0 1 1 0-2h2.07A7.001 7.001 0 0 1 11 6.07V4a1 1 0 0 1 1-1Zm0 4a5 5 0 1 0 0 10A5 5 0 0 0 12 7Zm0 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4Z"/>
+          </svg>
+        </div>
+        <div class="brand">
+          <h1>omamesh.net</h1>
+          <p>Metro Omaha Meshtastic</p>
+        </div>
+      </header>
+
+      <section class="hero" aria-labelledby="title">
+        <h2 id="title">Coming soon</h2>
+        <p>
+          We&rsquo;re building a new hub for the Omaha-area Meshtastic community —
+          events, how‑tos, coverage maps, and dashboards for live node data.
+        </p>
+      </section>
+
+      <div class="cta">
+        <a class="btn primary" href="mailto:hello@omamesh.net?subject=Keep%20me%20posted%20about%20omamesh.net">Get updates by email</a>
+        <a class="btn ghost" href="https://github.com/" target="_blank" rel="noopener">Follow progress on GitHub</a>
+      </div>
+
+      <section class="info" aria-label="Quick info">
+        <div class="tile">
+          <h3>Status</h3>
+          <p>Website under active construction in a separate repository.</p>
+        </div>
+        <div class="tile">
+          <h3>Planned features</h3>
+          <p>Getting started guides, local mesh etiquette, coverage map, weather &amp; battery telemetry dashboards.</p>
+        </div>
+        <div class="tile">
+          <h3>Want to help?</h3>
+          <p>Open an issue or PR once the main repository goes live, or email <a href="mailto:hello@omamesh.net">hello@omamesh.net</a>.</p>
+        </div>
+      </section>
+
+      <div class="pulse" aria-hidden="true"></div>
+      <footer>
+        <small>&copy; <span id="y"></span> omamesh.net • Not affiliated with the Meshtastic project. </small>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // year stamp
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
