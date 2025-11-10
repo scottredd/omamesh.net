@@ -4,4 +4,34 @@ title: Mesh Dashboard
 permalink: /mesh-wrapper.html
 ---
 
+<style>
+  /* Kill page-level horizontal scroll */
+  html, body { overflow-x: hidden; }
+
+  /* Scope fixes to injected dashboard only */
+  .mesh-content { max-width: 100%; overflow-x: clip; }
+  .mesh-content * { box-sizing: border-box; }
+
+  /* Make media responsive */
+  .mesh-content img,
+  .mesh-content svg,
+  .mesh-content canvas,
+  .mesh-content video { max-width: 100%; height: auto; }
+
+  /* Long code/JSON lines wrap instead of forcing page scroll */
+  .mesh-content pre,
+  .mesh-content code { white-space: pre-wrap; word-break: break-word; }
+
+  /* Tables: allow inner scroll if truly wider than viewport */
+  .mesh-content table { width: 100%; display: block; overflow-x: auto; }
+
+  /* Nuke common min-width offenders from dashboards */
+  .mesh-content [style*="min-width"],
+  .mesh-content .container,
+  .mesh-content .row { min-width: 0 !important; }
+
+  /* Some libs set fixed widths on SVG charts—let them shrink */
+  .mesh-content svg[width] { width: 100% !important; height: auto !important; }
+</style>
+
 <!--WORKER_CONTENT-->
