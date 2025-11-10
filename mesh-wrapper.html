@@ -4,7 +4,17 @@ title: Mesh Dashboard
 permalink: /mesh-wrapper.html
 ---
 
+---
+layout: default
+title: Mesh Dashboard
+permalink: /mesh-wrapper.html
+---
+
 <style>
+  /* Let this page stretch full-width (override Minima's .wrapper) */
+  .page-content { padding: 0; }
+  .page-content .wrapper { max-width: none; padding-left: 0; padding-right: 0; }
+
   /* Kill page-level horizontal scroll */
   html, body { overflow-x: hidden; }
 
@@ -33,5 +43,8 @@ permalink: /mesh-wrapper.html
   /* Some libs set fixed widths on SVG charts—let them shrink */
   .mesh-content svg[width] { width: 100% !important; height: auto !important; }
 </style>
+
+<!--WORKER_CONTENT-->
+
 
 <!--WORKER_CONTENT-->
