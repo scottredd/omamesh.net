@@ -12,5 +12,4 @@ Meshtastic quick start:
 
 1. Get a Meshtastic device.
 2. Install the app.
-3. Join the Omaha channel.
-4. Say hello on Discord.
+3. Say hello on Discord.
