@@ -71,6 +71,9 @@ After changing settings:
 - Save
 - Reboot your device
 
+For details on why SF9 is required and how Coding Rate affects reliability, see
+[Spreading Factor (SF) and Coding Rate (CR)]({{ "/docs/sf-cr/" | relative_url }}).
+
 ### Why SF9?
 
 SF9 strikes a good balance for Omaha:
