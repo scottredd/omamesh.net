@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+<section class="prose reveal">
+  <h1>{{ page.title }}</h1>
+  {{ content }}
+
+  {% assign bulletins = site.bulletins | sort: "date" | reverse %}
+  {% if bulletins.size == 0 %}
+  <div class="list-item">No bulletins yet.</div>
+  {% else %}
+  <div class="list">
+    {% for bulletin in bulletins %}
+    <article class="list-item reveal">
+      <div class="list-meta">{{ bulletin.date | date: "%B %-d, %Y" }}</div>
+      <h2><a href="{{ bulletin.url | relative_url }}">{{ bulletin.title }}</a></h2>
+      {% if bulletin.summary %}
+      <p><strong>Summary:</strong> {{ bulletin.summary }}</p>
+      {% endif %}
+      <div class="bulletin-body">
+        {{ bulletin.content }}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  {% endif %}
+</section>

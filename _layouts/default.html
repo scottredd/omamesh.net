@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="{{ page.description | default: site.description }}" />
+    <meta name="theme-color" content="#0f766e" />
+    <link rel="stylesheet" href="/assets/css/site.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <div class="brand">
+          <p class="brand-title">{{ site.title }}</p>
+          <p class="brand-sub">{{ site.description }}</p>
+        </div>
+        <nav class="nav" aria-label="Primary">
+          <a href="{{ "/" | relative_url }}">Home</a>
+          <a href="{{ "/docs/" | relative_url }}">Docs</a>
+          <a href="{{ "/map/" | relative_url }}">Map</a>
+          <a href="{{ "/bulletins/" | relative_url }}">Bulletins</a>
+          <a href="{{ "/blog/" | relative_url }}">Blog</a>
+          <a href="{{ "/about/" | relative_url }}">About</a>
+          <a href="{{ "/#contact" | relative_url }}">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <p class="footer-title">OmaMesh</p>
+          <p class="footer-note">Local mesh networking community in metro Omaha.</p>
+        </div>
+        <div>
+          <p class="footer-title">Community</p>
+          <p class="footer-note">
+            <a href="https://discordapp.com/channels/867578229534359593/1217697721285218314">Meshtastic Discord</a><br />
+            <a href="https://discord.gg/59sbGSCEms">MeshCore Discord</a>
+          </p>
+        </div>
+        <div>
+          <p class="footer-title">Resources</p>
+          <p class="footer-note">
+            <a href="https://meshtastic.org" target="_blank" rel="noopener">Meshtastic.org</a><br />
+            <a href="https://meshcore.co.uk" target="_blank" rel="noopener">MeshCore.co.uk</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,242 +1,98 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OmaMesh — Meshtastic & MeshCore in Metro Omaha</title>
-  <meta name="description" content="Metro Omaha mesh enthusiast community experimenting with both Meshtastic and MeshCore." />
-  <meta name="theme-color" content="#0ea5e9" />
-  <meta property="og:title" content="OmaMesh — Meshtastic & MeshCore in Metro Omaha" />
-  <meta property="og:description" content="Metro Omaha mesh enthusiast community experimenting with both Meshtastic and MeshCore." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://omamesh.net/" />
-  <meta name="robots" content="noindex,follow" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230ea5e9'/%3E%3Cpath d='M50 25a25 25 0 1 0 0 50 25 25 0 0 0 0-50Zm0 6a19 19 0 1 1 0 38 19 19 0 0 1 0-38Zm-9 18h18v6H41z' fill='white'/%3E%3C/svg%3E" />
-  <style>
-    :root{
-      --bg: #0b1020;
-      --fg: #e5f2ff;
-      --muted: #a7c4dd;
-      --brand: #0ea5e9; /* cyan-500 */
-      --card: rgba(255,255,255,0.06);
-      --ring: rgba(14,165,233,0.35);
-      --shadow: 0 10px 30px rgba(2,8,23,0.35);
-      --grid: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 1px);
-    }
-    @media (prefers-color-scheme: light) {
-      :root{
-        --bg: #f8fafc;
-        --fg: #0b1020;
-        --muted: #334155;
-        --card: rgba(2,8,23,0.04);
-        --ring: rgba(14,165,233,0.20);
-        --grid: radial-gradient(circle at 1px 1px, rgba(2,8,23,0.06) 1px, transparent 1px);
-      }
-    }
-    *{box-sizing:border-box}
-    html,body{min-height:100%}
-    body{
-      margin:0;
-      font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
-      color:var(--fg);
-      background:
-        radial-gradient(1200px 600px at 80% -10%, rgba(14,165,233,0.20), transparent 50%),
-        radial-gradient(1200px 600px at 0% 110%, rgba(14,165,233,0.15), transparent 50%),
-        var(--bg);
-      display:block;          /* allow normal flow */
-      overflow-x:hidden;      /* avoid sideways scroll, keep vertical scroll */
-    }
-    .wrap{
-      width:min(980px, 94vw);
-      margin:32px auto;
-      padding:16px;
-    }
-    .card{
-      background:var(--card);
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:24px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(8px);
-      position:relative;
-      isolation:isolate;
-      overflow:hidden;
-    }
-    .grid{position:absolute; inset:0; background-size:24px 24px; background-image:var(--grid); opacity:.35; pointer-events:none}
-    .banner{
-      margin:18px 24px 0;
-      padding:10px 14px;
-      border-radius:12px;
-      background: rgba(14,165,233,0.18);
-      border: 1px solid rgba(14,165,233,0.45);
-      color: var(--fg);
-      font-weight:600;
-      letter-spacing:0.2px;
-    }
-    header{display:flex; align-items:center; gap:14px; padding:24px 24px 0}
-    @media (max-width: 540px){
-      header{flex-direction:row; align-items:flex-start}
-    }
-    .logo{
-      width:44px; height:44px; border-radius:12px; display:grid; place-items:center;
-      background: linear-gradient(135deg, var(--brand), #60a5fa);
-      box-shadow: 0 6px 16px var(--ring);
-      flex-shrink:0;
-    }
-    .logo svg{width:26px; height:26px; fill:white}
-    .brand h1{font-size:clamp(22px,3.4vw,32px); line-height:1.1; margin:0}
-    .brand p{margin:2px 0 0; color:var(--muted)}
+---
+layout: default
+title: Home
+description: Metro Omaha mesh community on Meshtastic and MeshCore.
+---
 
-    .hero{padding:28px 24px 8px; text-align:left}
-    .hero h2{font-size:clamp(26px,5.2vw,44px); line-height:1.1; margin:0 0 10px}
-    .hero p{margin:0 auto; max-width:60ch; color:var(--muted)}
-
-    .cta{
-      display:flex; flex-wrap:wrap; gap:12px; justify-content:flex-start; align-items:center; padding:20px 24px 8px; margin:6px 0 8px;
-    }
-    .btn{appearance:none; border:none; cursor:pointer; font-weight:650; letter-spacing:.2px; padding:11px 16px; border-radius:999px; font-size:0.95rem; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; white-space:nowrap}
-    .btn.primary{background:var(--brand); color:white; box-shadow:0 6px 18px var(--ring)}
-    .btn.ghost{background:transparent; color:var(--fg); border:1px solid rgba(255,255,255,.18)}
-    .btn:focus-visible{outline:3px solid var(--ring); outline-offset:2px}
-
-    .info{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:14px;
-      padding:0 24px 24px;
-    }
-    .tile{
-      padding:16px 18px;
-      border:1px dashed rgba(255,255,255,0.18);
-      border-radius:16px;
-      background:rgba(15,23,42,0.30);
-    }
-    .tile h3{margin:0 0 6px; font-size:13px; text-transform:uppercase; letter-spacing:.14em; opacity:.85}
-    .tile p{margin:0; color:var(--muted); font-size:0.95rem}
-    .tile a{color:var(--fg); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px}
-
-    footer{padding:18px 24px 22px; color:var(--muted); text-align:center; font-size:0.85rem}
-    footer a{color:inherit}
-
-    .pulse{position:absolute; inset:auto 0 -50px 0; height:140px; background:radial-gradient(50% 100% at 50% 0, var(--ring), transparent 70%); filter:blur(14px); opacity:.6}
-
-    @media (max-width: 480px){
-      .wrap{margin:16px auto}
-      .card{border-radius:18px}
-      .cta{flex-direction:column; align-items:stretch}
-      .btn{width:100%}
-    }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <div class="card">
-      <div class="grid" aria-hidden="true"></div>
-      <div class="banner">Preview Site - Test Change (2025-12-28)</div>
-      <header>
-        <div class="logo" aria-hidden="true">
-          <!-- inline radio-ish glyph -->
-          <svg viewBox="0 0 24 24" role="img" aria-label="">
-            <path d="M12 3a1 1 0 0 1 1 1v2.07a7.001 7.001 0 0 1 4.93 4.93H20a1 1 0 1 1 0 2h-2.07A7.001 7.001 0 0 1 13 18.93V21a1 1 0 1 1-2 0v-2.07A7.001 7.001 0 0 1 6.07 13H4a1 1 0 1 1 0-2h2.07A7.001 7.001 0 0 1 11 6.07V4a1 1 0 0 1 1-1Zm0 4a5 5 0 1 0 0 10A5 5 0 0 0 12 7Zm0 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4Z"/>
-          </svg>
-        </div>
-        <div class="brand">
-          <h1>OmaMesh</h1>
-          <p>Metro Omaha mesh community on Meshtastic &amp; MeshCore</p>
-        </div>
-      </header>
-
-      <section class="hero" aria-labelledby="title">
-        <h2 id="title">One local community, two mesh platforms</h2>
-        <p>
-          OmaMesh is a grassroots group of Omaha, Nebraska, USA metropolitan area radio enthusiasts exploring long-range,
-          low-power mesh networking powered by both Meshtastic and MeshCore systems.
-        </p>
-      </section>
-
-      <div class="cta">
-        <!-- keep existing contact links exactly as-is -->
-        <a class="btn primary" href="/cdn-cgi/l/email-protection#2a424f4646456a45474b474f594204444f5e15595f48404f495e17614f4f5a0f181a474f0f181a5a45595e4f4e0f181a4b48455f5e0f181a45474b474f594204444f5e">Get updates by email</a>
-        <a class="btn primary" href="https://discordapp.com/channels/867578229534359593/1217697721285218314">OmaMesh Meshtastic Discord</a>
-        <a class="btn primary" href="https://discord.gg/59sbGSCEms">OmaMesh MeshCore Discord</a>
-        <a class="btn primary" href="/map">OmaMesh MeshCore Map</a>        
-      </div>
-
-      <section class="info" aria-label="Quick info">
-        <div class="tile">
-          <h3>What is OmaMesh?</h3>
-          <p>
-            We&rsquo;re a local, volunteer-run community experimenting with off-grid messaging and
-            telemetry. Many of us run Meshtastic nodes today, and some of us are starting to bring
-            up MeshCore-based test nodes as well. Same people, same radios, but different firmwares.
-          </p>
-        </div>
-
-        <div class="tile">
-          <h3>Two platforms, one social layer</h3>
-          <p>
-            The community layer is human, not brand-specific. Whether you&rsquo;re curious about
-            Meshtastic, MeshCore, or just learning what a mesh network is, you&rsquo;ll find
-            OmaMesh folks comparing notes, sharing coverage results, and testing ideas together.
-          </p>
-        </div>
-
-        <div class="tile">
-          <h3>Learn more about the projects</h3>
-          <p>
-            • Meshtastic project site: <a href="https://meshtastic.org" target="_blank" rel="noopener">meshtastic.org</a><br />
-            • MeshCore project site: <a href="https://meshcore.co.uk" target="_blank" rel="noopener">meshcore.co.uk</a>
-          </p>
-        </div>
-
-        <div class="tile">
-          <h3>What this site will offer</h3>
-          <p>
-            Coming soon: getting-started guides, how to join our Meshtastic channels, how to try
-            local MeshCore test networks, coverage and telemetry dashboards, and notes from the
-            experiments we&rsquo;re running around the metro.
-          </p>
-        </div>
-
-        <div class="tile">
-          <h3>MeshCore Settings</h3>
-          <p>
-            OmaMesh users have determined that using Spreading Factor 9 (SF9) works better than the default SF7. When configuring your Radio Settings, choose the <b>USA/Canada (Recommended)</b> preset,
-            and then change the <b>Spreading Factor</b> to 9. If running a repeater, also set <b>Coding Rate</b> to 8. Save, and then reboot your device. 
-          </p>
-        </div>
-          
-        <div class="tile">
-          <h3>Want to help?</h3>
-          <p>
-            Send an email to
-            <a href="/cdn-cgi/l/email-protection#b6ded3dadad9f6d9dbd7dbd3c5de98d8d3c2">
-              <span class="__cf_email__" data-cfemail="c5ada0a9a9aa85aaa8a4a8a0b6adebaba0b1">[email&#160;protected]</span>
-            </a>
-            or say hi in the Discord channel above if you&rsquo;d like to host a node, test new
-            firmware, or contribute info and content.
-          </p>
-          <p>Do you have access to a great site (tower, tall building, etc) to host a repeater? If yes, please contact us.</p>
-        </div>
-      </section>
-
-      <div class="pulse" aria-hidden="true"></div>
-      <footer>
-        <small>
-          &copy; <span id="y"></span> omamesh.net • Community-run site in the Omaha metro.
-          Not affiliated with the Meshtastic or MeshCore projects.
-        </small>
-      </footer>
+<section class="hero reveal">
+  <div>
+    <h1>One local community, two mesh platforms.</h1>
+    <p>
+      OmaMesh is a grassroots group of Omaha-area radio enthusiasts exploring long-range,
+      low-power mesh networking powered by both Meshtastic and MeshCore systems.
+    </p>
+  </div>
+  <div class="hero-card reveal delay-1">
+    <strong>Next steps</strong>
+    <p>
+      Explore docs, join the community chats, or check live coverage on the MeshCore map.
+      We&rsquo;re building guides and shared infrastructure across both platforms.
+    </p>
+    <div class="cta-row">
+      <a class="btn" href="{{ "/docs/" | relative_url }}">Getting started</a>
+      <a class="btn secondary" href="{{ "/map/" | relative_url }}">MeshCore map</a>
     </div>
   </div>
+</section>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-  <script>
-    // year stamp
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
-          integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
-          data-cf-beacon='{"version":"2024.11.0","token":"9e5b1ed30719473fb45eade0a6041ca5","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}'
-          crossorigin="anonymous"></script>
-</body>
-</html>
+<section class="section reveal delay-2">
+  <h2>Join the community</h2>
+  <div class="cta-row">
+    <a class="btn" href="/cdn-cgi/l/email-protection#2a424f4646456a45474b474f594204444f5e15595f48404f495e17614f4f5a0f181a474f0f181a5a45595e4f4e0f181a4b48455f5e0f181a45474b474f594204444f5e">Get updates by email</a>
+    <a class="btn secondary" href="https://discordapp.com/channels/867578229534359593/1217697721285218314">Meshtastic Discord</a>
+    <a class="btn secondary" href="https://discord.gg/59sbGSCEms">MeshCore Discord</a>
+  </div>
+</section>
+
+<section class="section reveal delay-2">
+  <h2>What we&rsquo;re working on</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Two platforms, one social layer</h3>
+      <p>
+        The community is human, not brand-specific. Whether you&rsquo;re curious about Meshtastic,
+        MeshCore, or just learning what a mesh network is, you&rsquo;ll find people comparing notes
+        and testing ideas together.
+      </p>
+    </div>
+    <div class="card">
+      <h3>MeshCore Settings</h3>
+      <p>
+        Our group has found Spreading Factor 9 (SF9) works better than the default SF7. Use the
+        <strong>USA/Canada (Recommended)</strong> preset, change <strong>Spreading Factor</strong> to 9,
+        and if you run a repeater, set <strong>Coding Rate</strong> to 8 before rebooting.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Docs and field notes</h3>
+      <p>
+        Coming soon: getting-started guides, channel join info, coverage dashboards, and field
+        test notes from across the metro area.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal delay-3">
+  <h2>Project links</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Meshtastic</h3>
+      <p><a href="https://meshtastic.org" target="_blank" rel="noopener">meshtastic.org</a></p>
+    </div>
+    <div class="card">
+      <h3>MeshCore</h3>
+      <p><a href="https://meshcore.co.uk" target="_blank" rel="noopener">meshcore.co.uk</a></p>
+    </div>
+    <div class="card">
+      <h3>Bulletins archive</h3>
+      <p><a href="{{ "/bulletins/" | relative_url }}">Read recent email bulletins</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="contact">
+  <h2>Want to help?</h2>
+  <div class="card">
+    <p>
+      Send an email to
+      <a href="/cdn-cgi/l/email-protection#b6ded3dadad9f6d9dbd7dbd3c5de98d8d3c2">
+        <span class="__cf_email__" data-cfemail="c5ada0a9a9aa85aaa8a4a8a0b6adebaba0b1">[email&#160;protected]</span>
+      </a>
+      with a quick note about your experience, your equipment, and where you&rsquo;re located.
+    </p>
+    <p>Do you have access to a great site (tower, tall building, etc) to host a repeater? If yes, please contact us.</p>
+  </div>
+</section>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>

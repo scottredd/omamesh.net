@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<section class="prose reveal">
+  <h1>{{ page.title }}</h1>
+  {{ content }}
+
+  {% if site.posts.size > 0 %}
+  <div class="list">
+    {% for post in site.posts %}
+    <article class="list-item reveal">
+      <div class="list-meta">{{ post.date | date: "%B %-d, %Y" }}</div>
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      {% if post.excerpt %}
+      <p>{{ post.excerpt | strip_html | truncate: 220 }}</p>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="list-item">No posts yet.</div>
+  {% endif %}
+</section>

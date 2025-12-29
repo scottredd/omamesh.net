@@ -1,22 +1,21 @@
-title: Mesh Omaha
-description: Meshtastic in the greater Omaha metro
-theme: minima
+title: OmaMesh
+description: Metro Omaha mesh community on Meshtastic and MeshCore.
 
 # Optional nice-to-haves supported by GitHub Pages
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-minima:
-  # Header navigation links
-  nav:
-    - title: "Home"
-      url: "/"
-    - title: "Docs"
-      url: "/docs/"
-    - title: "Blog"
-      url: "/blog/"
-    - title: "About"
-      url: "/about/"
-
 author: "Scott Redd"
+
+collections:
+  bulletins:
+    output: true
+    permalink: /bulletins/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: bulletins
+    values:
+      layout: bulletin
