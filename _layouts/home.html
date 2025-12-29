@@ -11,7 +11,9 @@ layout: default
   <div class="list">
     {% for post in posts_sorted %}
     <article class="list-item reveal">
-      <div class="list-meta">{{ post.date | date: "%B %-d, %Y" }}</div>
+      <div class="list-meta">
+        {{ post.date | date: "%B %-d, %Y" }}{% if post.author %} &middot; {{ post.author }}{% endif %}
+      </div>
       <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
       {% if post.excerpt %}
       <p>{{ post.excerpt | strip_html | truncate: 220 }}</p>
