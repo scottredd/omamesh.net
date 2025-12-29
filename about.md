@@ -59,7 +59,7 @@ We share configuration tips, compare notes, and document what works (and what do
 
 This project is community-maintained and always changing. Coverage grows. Software improves. Ideas evolve. If you’re curious, you’re already qualified.
 
-If you want to get started, check out the **Getting Started** section—or jump into the conversation on Discord and say hello.
+If you want to get started, check out the **Docs > Getting Started** section—or jump into the conversation on Discord and say hello.
 
 Welcome to OmaMesh.
 
