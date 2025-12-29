@@ -19,6 +19,6 @@
 
   You don’t need to be a writer. A few paragraphs, a few bullet points, or even raw notes are fine. We can help shape it into a post.
 
-  If you’d like to contribute, send a note to **hello@omamesh.net** or message us on Discord. We’ll get you the short “how to post” instructions and a simple template.
+  If you’d like to contribute, send a note to <a href="/cdn-cgi/l/email-protection#4f272a2323200f20222e222a3c2761212a3b"><span class="__cf_email__" data-cfemail="4f272a2323200f20222e222a3c2761212a3b">[email protected]</span></a> or message us on Discord. We’ll get you the short “how to post” instructions and a simple template.
 
   Thanks for helping make OmaMesh stronger — every node and every story matters.
