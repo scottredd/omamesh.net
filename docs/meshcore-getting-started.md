@@ -237,8 +237,9 @@ For details on why SF9 is required and how Coding Rate affects reliability, see
 Once your device is configured:
 
 - Power it on and let it run for a few minutes
-- Watch for node discovery - you should start seeing nearby stations
-- Send a short message in the public channel
+- Watch for node discovery - you should start seeing nearby stations. It make take a few hours depending on the advert frequency of companion nodes, repeaters, and room servers.
+- Find nearby repeaters: in your companion app, navigate to Tools -> Discover Nearby Nodes -> Discover Repeaters. This will ask local repeaters to identify themselves to you.
+- Send a short message in the public channel and look for repeats or even replies from other users
 - Try sending a direct message (DM) to another node
 - Look for a delivery acknowledgement (ACK)
 
