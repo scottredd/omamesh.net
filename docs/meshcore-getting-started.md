@@ -124,9 +124,8 @@ A compact, low-power LoRa module designed for embedded and portable use.
 - SX1262-based radio
 - Very small footprint
 - Excellent power efficiency
-- Requires an external carrier board or custom wiring
 
-Best for: ultra-compact builds, embedded projects, advanced users  
+Best for: ultra-compact builds, solar repeaters, embedded projects, advanced users  
 Why we like it: great RF performance in a tiny, efficient package
 
 ---
@@ -178,7 +177,7 @@ Antenna quality and placement often matter more than the board itself.
 - Coding Rate may vary without breaking interoperability
 - Higher output power does not guarantee better results without good antennas
 
-If you are unsure what to buy, start with a Heltec V4, Station G2, or T-Beam, then branch out as your needs evolve.
+If you are unsure what to buy, start with a Heltec V4, RAK, Station G2, or T-Beam, then branch out as your needs evolve.
 
 Get on the air first. Optimize later.
 
@@ -259,7 +258,7 @@ MeshCore is shared spectrum. A little courtesy goes a long way.
 
 The Omaha mesh community is friendly and active.
 
-- OmaMesh MshCore Discord: https://discord.gg/59sbGSCEms
+- OmaMesh MeshCore Discord: https://discord.gg/59sbGSCEms
 
 If something is not working:
 
