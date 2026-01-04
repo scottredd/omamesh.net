@@ -4,10 +4,7 @@ title: Repeaters
 permalink: /docs/repeaters/
 ---
 
-This page shows the current repeater list and any 2-digit ID conflicts. The table is generated from MeshBot logs and published to S3.
-
-Direct link:
-<https://omamesh-mc-nodes-map.s3.us-east-2.amazonaws.com/repeaters.html>
+This page shows the current repeater list and any 2-digit ID conflicts.
 
 <iframe
   title="OmaMesh Repeaters"
