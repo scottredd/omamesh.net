@@ -45,8 +45,8 @@ That “boring reliability” is one of the best signs of a healthy mesh.
 
 ## 🗺️ Live Map, Real Data, and Regional Scale
 
-- https://omamesh.net/map/  
-- https://omamesh.net/list/
+- [https://omamesh.net/map/](https://omamesh.net/map/)
+- [https://omamesh.net/list/](https://omamesh.net/list/)
 
 The map shows **on-air observations only** — evidence, not limits.
 
@@ -93,11 +93,11 @@ Turn-based games like **Connect Four** show how shared state and interaction wor
 
 Nebraska-focused coordination and experimentation:
 
-- https://discord.gg/urDBxDPKv8
+- [https://discord.gg/urDBxDPKv8](https://discord.gg/urDBxDPKv8)
 
 Also:
-- MeshCore Discord: https://discord.gg/59sbGSCEms  
-- Meshtastic Discord: https://discord.gg/meshtastic  
+- MeshCore Discord: [https://discord.gg/59sbGSCEms](https://discord.gg/59sbGSCEms)
+- Meshtastic Discord: [https://discord.gg/meshtastic](https://discord.gg/meshtastic)
 
 ---
 
@@ -119,4 +119,4 @@ Also:
 Say hi on the air, try `#test`, or just listen.
 
 — **Scott**  
-https://OmaMesh.net
+[https://OmaMesh.net](https://OmaMesh.net)
