@@ -1,7 +1,6 @@
-
 ---
 layout: page
-title: Repeaters
+title: Channels
 permalink: /docs/channels/
 ---
 
