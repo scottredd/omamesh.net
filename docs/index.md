@@ -10,3 +10,4 @@ Quick links:
 - [Getting Started with MeshCore]({{ "/docs/meshcore-getting-started/" | relative_url }})
 - [Best Practices]({{ "/docs/best-practices.html" | relative_url }})
 - [Repeaters]({{ "/docs/repeaters/" | relative_url }})
+- [Channels]({{ "/docs/channels/" | relative_url }})
