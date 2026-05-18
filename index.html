@@ -1,98 +1,229 @@
----
-layout: default
-title: Home
-description: Metro Omaha mesh community on Meshtastic and MeshCore.
----
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OmaMesh | Omaha Mesh Networking</title>
+    <meta
+      name="description"
+      content="OmaMesh helps people in the Omaha metro get started with Meshtastic or MeshCore and connect with the wider NebraskaMesh community."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body id="top">
+    <header class="site-header">
+      <div class="wrap">
+        <p class="eyebrow">Omaha metro mesh community</p>
+        <h1>Get connected to the mesh in Omaha.</h1>
+        <p class="intro">
+          OmaMesh is a simple starting point for people in the Omaha, Nebraska
+          area who want to learn about off-grid mesh radio networks and join the
+          local community.
+        </p>
+        <nav class="actions" aria-label="Primary">
+          <a class="button" href="#start">Start Here</a>
+          <a class="button button-secondary" href="https://www.nebraskamesh.net/">NebraskaMesh.net</a>
+        </nav>
+      </div>
+    </header>
 
-<section class="hero reveal">
-  <div>
-    <h1>One local community, two mesh platforms.</h1>
-    <p>
-      OmaMesh is a grassroots group of Omaha-area radio enthusiasts exploring long-range,
-      low-power mesh networking powered by both Meshtastic and MeshCore systems.
-    </p>
-  </div>
-  <div class="hero-card reveal delay-1">
-    <strong>Next steps</strong>
-    <p>
-      Explore docs, join the community chats, or check live coverage on the MeshCore map.
-      We&rsquo;re building guides and shared infrastructure across both platforms.
-    </p>
-    <div class="cta-row">
-      <a class="btn" href="{{ "/docs/" | relative_url }}">Getting started</a>
-      <a class="btn secondary" href="{{ "/map/" | relative_url }}">MeshCore map</a>
-    </div>
-  </div>
-</section>
+    <main>
+      <section class="section" id="start">
+        <div class="wrap two-column">
+          <div>
+            <p class="section-label">Start here</p>
+            <h2>Two approachable ways to join the local mesh.</h2>
+          </div>
+          <div>
+            <p>
+              OmaMesh is a simple guide for people in the Omaha metro who want
+              to get on the air and understand the two main platforms used locally:
+              Meshtastic and MeshCore.
+            </p>
+            <p>
+              Both are meant to support decentralized mesh networking. This
+              page gives the short version and
+              points you to <a href="https://www.nebraskamesh.net/">NebraskaMesh.net</a>
+              for the current shared NebraskaMesh MeshCore network.
+            </p>
+          </div>
+        </div>
+      </section>
 
-<section class="section reveal delay-2">
-  <h2>Join the community</h2>
-  <div class="cta-row">
-    <a class="btn" href="/cdn-cgi/l/email-protection#2a424f4646456a45474b474f594204444f5e15595f48404f495e17614f4f5a0f181a474f0f181a5a45595e4f4e0f181a4b48455f5e0f181a45474b474f594204444f5e">Get updates by email</a>
-    <a class="btn secondary" href="https://discordapp.com/channels/867578229534359593/1217697721285218314">Meshtastic Discord</a>
-    <a class="btn secondary" href="https://discord.gg/59sbGSCEms">MeshCore Discord</a>
-    <a class="btn secondary" href="https://discord.gg/urDBxDPKv8">NebraskaMesh MeshCore Discord</a>
-  </div>
-</section>
+      <section class="section section-accent" id="platforms">
+        <div class="wrap">
+          <p class="section-label">Explore the platforms</p>
+          <div class="card-grid">
+            <article class="card">
+              <h3>NebraskaMesh.net</h3>
+              <p>
+                Use NebraskaMesh.net for current shared-network settings, map,
+                events, and coordination for the NebraskaMesh MeshCore network.
+              </p>
+              <p>
+                While mesh networking is decentralized by design, NebraskaMesh
+                uses some coordination to help build the strongest practical
+                mesh possible across Nebraska's challenging terrain and nearby
+                surrounding states.
+              </p>
+              <p><a href="https://www.nebraskamesh.net/">Open NebraskaMesh.net</a></p>
+            </article>
+            <article class="card">
+              <h3>MeshCore</h3>
+              <p>
+                MeshCore is designed around public and private messaging and is
+                the main platform behind the shared NebraskaMesh effort.
+              </p>
+              <p>
+                The current NebraskaMesh focus is the default high-speed SF7
+                standard, while some local users still value the older SF9
+                approach for longer-range links.
+              </p>
+              <p><a href="https://meshcore.io/">Visit MeshCore.io</a></p>
+            </article>
+            <article class="card">
+              <h3>Meshtastic</h3>
+              <p>
+                Meshtastic is a good fit if you want simple out-of-the-box use,
+                easy phone pairing, and a large beginner-friendly ecosystem.
+              </p>
+              <p>
+                It is great for ad-hoc local use, though its messaging model is
+                more limited than MeshCore's public and private messaging focus.
+              </p>
+              <p><a href="https://meshtastic.org/">Visit Meshtastic.org</a></p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-<section class="section reveal delay-2">
-  <h2>What we&rsquo;re working on</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Two platforms, one social layer</h3>
-      <p>
-        The community is human, not brand-specific. Whether you&rsquo;re curious about Meshtastic,
-        MeshCore, or just learning what a mesh network is, you&rsquo;ll find people comparing notes
-        and testing ideas together.
-      </p>
-    </div>
-    <div class="card">
-      <h3>MeshCore Settings</h3>
-      <p>
-        Our group has found Spreading Factor 9 (SF9) works better than the default SF7. Use the
-        <strong>USA/Canada (Recommended)</strong> preset, change <strong>Spreading Factor</strong> to 9,
-        and if you run a repeater, set <strong>Coding Rate</strong> to 8 before rebooting.
-      </p>
-    </div>
-    <div class="card">
-      <h3>Docs and field notes</h3>
-      <p>
-        Coming soon: getting-started guides, channel join info, coverage dashboards, and field
-        test notes from across the metro area.
-      </p>
-    </div>
-  </div>
-</section>
+      <section class="section" id="next-steps">
+        <div class="wrap two-column">
+          <div>
+            <p class="section-label">What to do next</p>
+            <h2>Use this site as a local on-ramp, then branch out.</h2>
+          </div>
+          <div>
+            <p>
+              If you want quick ad-hoc setup, Meshtastic is an easy place to
+              start. If you want the Nebraska shared MeshCore network, use
+              NebraskaMesh.net for the latest settings and map.
+            </p>
+            <p>
+              OmaMesh previously advocated legacy SF9 MeshCore settings because
+              they helped connect longer-range nodes when the local mesh was
+              thinner. Today, the shared Nebraska network is centered on default
+              SF7, while legacy SF9 remains part of the local history and may
+              still appeal to some operators.
+            </p>
+          </div>
+        </div>
+      </section>
 
-<section class="section reveal delay-3">
-  <h2>Project links</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Meshtastic</h3>
-      <p><a href="https://meshtastic.org" target="_blank" rel="noopener">meshtastic.org</a></p>
-    </div>
-    <div class="card">
-      <h3>MeshCore</h3>
-      <p><a href="https://meshcore.co.uk" target="_blank" rel="noopener">meshcore.co.uk</a></p>
-    </div>
-    <div class="card">
-      <h3>Bulletins archive</h3>
-      <p><a href="{{ "/bulletins/" | relative_url }}">Read recent email bulletins</a></p>
-    </div>
-  </div>
-</section>
+      <section class="section section-accent" id="settings">
+        <div class="wrap">
+          <p class="section-label">Settings</p>
+          <h2>Two MeshCore setups you may still hear about locally.</h2>
+          <p class="intro">
+            OmaMesh historically pointed people to an SF9 configuration for
+            longer-range reliability. NebraskaMesh is moving to the default SF7
+            standard for its shared network, with the change announced for
+            May 31, 2026.
+          </p>
+          <div class="card-grid settings-grid">
+            <article class="card">
+              <h3>NebraskaMesh standard (SF7)</h3>
+              <p>
+                This is the default USA/Canada MeshCore preset and the stated
+                NebraskaMesh direction for the shared network.
+              </p>
+              <ul class="settings-list">
+                <li>Preset: USA / Canada (Recommended)</li>
+                <li>Frequency: 910.525 MHz</li>
+                <li>Bandwidth: 62.5 kHz</li>
+                <li>Spread Factor: SF7</li>
+                <li>Coding Rate: CR5 default</li>
+              </ul>
+              <p>
+                Notes: SF7 is faster and is the default narrow-band MeshCore
+                setting. NebraskaMesh.net has announced a network-wide switch to
+                SF7 on May 31, 2026, along with updated repeater firmware and a
+                move toward 2-byte repeater IDs for the shared network.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Legacy OmaMesh MeshCore (SF9)</h3>
+              <p>
+                Based on the old OmaMesh guidance for users who wanted the local
+                long-link settings that were commonly recommended earlier on.
+              </p>
+              <ul class="settings-list">
+                <li>Preset: USA / Canada (Recommended)</li>
+                <li>Frequency: 910.525 MHz</li>
+                <li>Bandwidth: 62.5 kHz</li>
+                <li>Spread Factor: SF9</li>
+                <li>Coding Rate: use default CR5 for normal nodes</li>
+                <li>Coding Rate for repeaters: CR8</li>
+              </ul>
+              <p>
+                Notes: SF9 trades speed for better weak-signal and longer-range
+                performance. Old OmaMesh guidance specifically said repeater
+                operators should change Coding Rate to 8 and reboot.
+              </p>
+            </article>
+          </div>
+          <p class="settings-footnote">
+            Check <a href="https://www.nebraskamesh.net/">NebraskaMesh.net</a>
+            before programming a radio for the shared network, since live
+            network standards can change faster than this page.
+          </p>
+        </div>
+      </section>
 
-<section class="section reveal" id="contact">
-  <h2>Want to help?</h2>
-  <div class="card">
-    <p>
-      Send an email to <a href="mailto:hello@omamesh.net">hello@omamesh.net</a> or say hi in the
-      Discord channel above if you&rsquo;d like to host a node, test new firmware, or contribute
-      info and content.
-    </p>
-    <p>Send us a note if you&rsquo;d like to learn more about OmaMesh and receive updates as things change.</p>
-    <p>Do you have access to a great site (tower, tall building, etc) to host a repeater? If yes, please contact us.</p>
-  </div>
-</section>
+      <section class="section" id="future-efforts">
+        <div class="wrap">
+          <div class="card future-card">
+            <p class="section-label">Future efforts</p>
+            <h2>Possible ways to support both standard and long-range use.</h2>
+            <p>
+              One possible future direction is asking legacy SF9 operators to
+              transition to a different frequency so it can continue serving
+              longer-range needs without conflicting with the standard MeshCore
+              defaults.
+            </p>
+            <p>
+              Another is custom long-range bridge hardware that could help
+              different spread factor configurations interoperate more cleanly,
+              especially for rural operators trying to connect distant nodes.
+            </p>
+          </div>
+        </div>
+      </section>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+      <section class="section" id="links">
+        <div class="wrap contact-box">
+          <div>
+            <p class="section-label">Quick links</p>
+            <h2>The shortest route to the right information.</h2>
+          </div>
+          <div>
+            <p><a href="https://www.nebraskamesh.net/">NebraskaMesh.net</a> for current MeshCore settings, map, and events.</p>
+            <p><a href="https://discord.gg/urDBxDPKv8">NebraskaMesh Discord</a> for coordination and help.</p>
+            <p><a href="https://meshtastic.org/">Meshtastic.org</a> for Meshtastic downloads and documentation.</p>
+            <p><a href="https://meshcore.io/">MeshCore.io</a> for MeshCore information.</p>
+            <p>To learn more, email <a href="mailto:hello@omamesh.net">hello@omamesh.net</a>.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-row">
+        <p id="footer-copy">© <span id="year"></span> OmaMesh</p>
+        <a href="#top">Back to top</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
